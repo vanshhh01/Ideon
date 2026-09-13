@@ -162,22 +162,60 @@
    LIGHT THEME PRINT / PDF EXPORT STYLES
    Formats the entire report cleanly on white paper
    ============================================================ */
+/* ============================================================
+   LIGHT THEME PRINT / PDF EXPORT STYLES
+   Pure light theme for printable dossier / PDF export
+   ============================================================ */
 @media print {
-  html, body {
-    background: #ffffff !important;
-    color: #111827 !important;
-    font-size: 11pt !important;
-    line-height: 1.5 !important;
+  @page {
+    margin: 1.2cm 1.4cm;
+    size: auto;
   }
 
-  /* Hide web chrome, footer, interactive backgrounds, and actions */
+  :root {
+    --fg: #111827 !important;
+    --fg-soft: #374151 !important;
+    --fg-faint: #6b7280 !important;
+    --shade: #ffffff !important;
+    --shade-card: #ffffff !important;
+    --shade-card-elevated: #f9fafb !important;
+    --shade-muted: #f3f4f6 !important;
+    --rule: #e5e7eb !important;
+    --rule-light: #f3f4f6 !important;
+    --pill-bg: #111827 !important;
+    --pill-fg: #ffffff !important;
+    color-scheme: light !important;
+  }
+
+  html, body, #root, #root > div, main {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide web chrome, footer, interactive backgrounds, buttons and actions */
   header, footer, .no-print, canvas, .editorial-grain, button, .pill, .pill-secondary {
     display: none !important;
   }
 
-  /* Clean print paper cards */
-  .paper-card, .bg-\[\#131211\], .bg-\[\#171614\], .bg-\[\#1a1917\] {
+  /* Remove any dark borders, set clean light gray borders everywhere */
+  *, *::before, *::after {
+    border-color: #e5e7eb !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Cards and sections */
+  .paper-card, 
+  .bg-\[\#131211\], 
+  .bg-\[\#171614\], 
+  .bg-\[\#1a1917\] {
     background: #ffffff !important;
+    background-color: #ffffff !important;
     color: #111827 !important;
     border: 1px solid #e5e7eb !important;
     box-shadow: none !important;
@@ -186,25 +224,37 @@
     break-inside: avoid !important;
   }
 
-  /* Force dark readable text on all headings and paragraphs */
-  h1, h2, h3, h4, h5, h6, p, span, div {
+  /* Force dark readable text on all headings, paragraphs, spans */
+  h1, h2, h3, h4, h5, h6, p, span, div, strong, b {
     color: #111827 !important;
-    text-shadow: none !important;
   }
 
-  .text-\[var\(--fg-faint\)\], .text-\[var\(--fg-soft\)\] {
-    color: #4b5563 !important;
+  .text-\[var\(--fg-faint\)\], .text-gray-500, .text-gray-400 {
+    color: #6b7280 !important;
   }
 
-  /* Light theme badges in print */
+  .text-\[var\(--fg-soft\)\], .text-gray-700, .text-gray-600 {
+    color: #374151 !important;
+  }
+
+  /* Left accent borders for stance cards */
   .border-l-emerald-500\/80, .border-l-emerald-500 {
     border-left: 4px solid #10b981 !important;
     background: #f0fdf4 !important;
+    background-color: #f0fdf4 !important;
   }
 
   .border-l-rose-500\/80, .border-l-rose-500 {
     border-left: 4px solid #f43f5e !important;
     background: #fff1f2 !important;
+    background-color: #fff1f2 !important;
+  }
+
+  /* Stance Badges */
+  .bg-emerald-950\/60, .bg-emerald-950\/50, .bg-emerald-950\/40, .bg-emerald-950\/20 {
+    background: #ecfdf5 !important;
+    background-color: #ecfdf5 !important;
+    border: 1px solid #a7f3d0 !important;
   }
 
   .text-emerald-300, .text-emerald-400 {
@@ -212,32 +262,48 @@
     font-weight: 700 !important;
   }
 
+  .bg-rose-950\/60, .bg-rose-950\/50, .bg-rose-950\/40, .bg-rose-950\/20 {
+    background: #fff1f2 !important;
+    background-color: #fff1f2 !important;
+    border: 1px solid #fecdd3 !important;
+  }
+
   .text-rose-300, .text-rose-400 {
     color: #9f1239 !important;
     font-weight: 700 !important;
   }
 
-  .text-amber-300, .text-amber-400, .text-amber-200 {
-    color: #92400e !important;
-  }
-
-  .bg-amber-950\/20 {
+  /* Concession Callouts */
+  .bg-amber-950\/20, .bg-amber-950\/40 {
     background: #fefce8 !important;
+    background-color: #fefce8 !important;
+    border: 1px solid #fef08a !important;
     border-left: 3px solid #f59e0b !important;
   }
 
-  .bg-purple-500\/10, .text-purple-300 {
-    background: #faf5ff !important;
+  .text-amber-200, .text-amber-300, .text-amber-400 {
+    color: #92400e !important;
+  }
+
+  /* Cross-Exam Callout */
+  .text-purple-300 {
     color: #6b21a8 !important;
   }
 
-  /* Score bars in print */
-  .bg-\[\#22201d\], .bg-\[\#1a1917\] {
-    background: #f3f4f6 !important;
+  /* Rubric score progress bars */
+  .bg-\[\#22201d\], .bg-\[\#22201d\]\/60 {
+    background: #e5e7eb !important;
+    background-color: #e5e7eb !important;
   }
 
-  .bg-\[var\(--fg\)\], .bg-amber-400 {
+  .bg-\[var\(--fg\)\] {
     background: #111827 !important;
+    background-color: #111827 !important;
+  }
+
+  .bg-\[var\(--fg-faint\)\] {
+    background: #9ca3af !important;
+    background-color: #9ca3af !important;
   }
 
   /* Universal print color fidelity */

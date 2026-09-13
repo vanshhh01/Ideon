@@ -277,7 +277,7 @@ export default function App() {
   const isCrossExamActive = turns.length >= 10;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--shade)] text-[var(--fg)] relative selection:bg-[#0d0c0b] selection:text-[#ffffff]">
+    <div className="min-h-screen flex flex-col bg-[var(--shade)] text-[var(--fg)] relative selection:bg-[#0d0c0b] selection:text-[#ffffff] print:bg-white print:text-black">
       {/* Animated Floating Generative Pattern */}
       <AnimatedBackground />
 
